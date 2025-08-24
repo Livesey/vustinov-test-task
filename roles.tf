@@ -66,11 +66,11 @@ module "roleC" {
 
   # Trust: allow acc0 to assume this role
   trust_policy_permissions = {
-    Acc0CanAssume = {
-      principals = [{
+    Acc0RoleBCanAssume = {
+        principals = [{
         type        = "AWS"
-        identifiers = [local.acc0_root_arn] # root acc0
-      }]
+        identifiers = [module.roleB.arn]
+        }]
     }
   }
 
