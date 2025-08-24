@@ -1,3 +1,5 @@
+# In real project you are must have different profiles for different accounts
+
 provider "aws" {
   alias   = "acc0"
   profile = "default"
