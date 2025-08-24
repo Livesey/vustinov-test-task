@@ -43,6 +43,7 @@ This project provisions IAM resources across two AWS accounts (**acc0** and **ac
 ├── groups.tf # IAM groups and attached policies
 ├── policies.tf # Custom IAM policies
 ├── roles.tf # IAM roles (roleA, roleB, roleC)
+├── outputs.tf # Outputs for key resource identifiers
 ├── README.md # Project documentation
 └── .gitignore
 ```
@@ -53,6 +54,20 @@ This project provisions IAM resources across two AWS accounts (**acc0** and **ac
 - Two AWS accounts (acc0 and acc1) configured via `~/.aws/credentials`
 
 ## Usage
-Initialize modules:
+
 ```bash
+# Initialize modules
 terraform init
+
+# Validate configuration
+terraform validate
+
+# See the execution plan
+terraform plan
+
+# Apply resources
+terraform apply
+
+# Show outputs (ARNs, etc.)
+terraform output
+```

@@ -67,10 +67,10 @@ module "roleC" {
   # Trust: allow acc0 to assume this role
   trust_policy_permissions = {
     Acc0RoleBCanAssume = {
-        principals = [{
+      principals = [{
         type        = "AWS"
         identifiers = [module.roleB.arn]
-        }]
+      }]
     }
   }
 
@@ -78,21 +78,5 @@ module "roleC" {
   policies = {
     S3Access = module.policy_s3.arn
   }
-}
-
-# Outputs
-output "roleA_arn" {
-  description = "ARN of roleA"
-  value       = module.roleA.arn
-}
-
-output "roleB_arn" {
-  description = "ARN of roleB"
-  value       = module.roleB.arn
-}
-
-output "roleC_arn" {
-  description = "ARN of roleC"
-  value       = module.roleC.arn
 }
 

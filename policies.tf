@@ -68,7 +68,7 @@ module "policy_s3" {
       },
       {
         Effect   = "Allow",
-        Action   = ["s3:GetObject","s3:PutObject","s3:DeleteObject"],
+        Action   = ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
         Resource = ["arn:aws:s3:::${local.s3_bucket_name}/*"]
       }
     ]
@@ -93,25 +93,4 @@ module "policy_allow_assume_roleC" {
       Resource = local.roleC_arn
     }]
   })
-}
-
-# Outputs
-output "deny_console_access_policy_arn" {
-  description = "ARN of deny-console-access policy"
-  value       = module.policy_deny_console_access.arn
-}
-
-output "policy_deny_iam_all_arn" {
-  description = "ARN of deny-iam-all policy"
-  value       = module.policy_deny_iam_all.arn
-}
-
-output "policy_s3_arn" {
-  description = "ARN of roleC S3 policy (acc1)"
-  value       = module.policy_s3.arn
-}
-
-output "policy_allow_assume_roleC_arn" {
-  description = "ARN of allow-assume-roleC policy"
-  value       = module.policy_allow_assume_roleC.arn
 }
