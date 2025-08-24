@@ -23,9 +23,19 @@ module "group2_users" {
   }
 
   for_each = toset(local.group2_users)
-
+  
   name                          = each.key
-  create_iam_access_key         = false
+  create_iam_access_key         = true
   create_iam_user_login_profile = true
   password_reset_required       = true
+}
+
+
+output "group1_user_arns"  { 
+    description = "group1 user ARNs"
+    value = [for m in module.group1_users : m.iam_user_arn]  
+}
+output "group2_user_arns"  { 
+    description = "group2 user ARNs"
+    value = [for m in module.group2_users : m.iam_user_arn]  
 }
