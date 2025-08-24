@@ -11,7 +11,8 @@ module "group1" {
   users = local.group1_users
 
   policies = {
-    DenyConsoleMgmt = module.policy_deny_console_access.arn
+    PowerUserAccess  = "arn:aws:iam::aws:policy/PowerUserAccess"
+    DenyConsoleMgmt  = module.policy_deny_console_access.arn
   }
 }
 
@@ -26,7 +27,7 @@ module "group2" {
 
   name  = local.group2_name
   users = local.group2_users
-
+  
   policies = {
     PowerUserAccess       = "arn:aws:iam::aws:policy/PowerUserAccess"
     IAMUserChangePassword = "arn:aws:iam::aws:policy/IAMUserChangePassword"
