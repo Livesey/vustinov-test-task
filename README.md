@@ -34,3 +34,25 @@ This project provisions IAM resources across two AWS accounts (**acc0** and **ac
 - **allow-assume-roleC**: allows roleB to assume roleC  
 
 ## File Structure
+```text
+.
+├── versions.tf # Terraform version and provider constraints
+├── providers.tf # AWS providers (acc0 and acc1)
+├── locals.tf # Accounts, users, groups, roles, bucket, ARNs
+├── users.tf # IAM users (group1 & group2)
+├── groups.tf # IAM groups and attached policies
+├── policies.tf # Custom IAM policies
+├── roles.tf # IAM roles (roleA, roleB, roleC)
+├── README.md # Project documentation
+└── .gitignore
+```
+
+## Requirements
+- Terraform >= 1.5
+- AWS provider >= 5.0
+- Two AWS accounts (acc0 and acc1) configured via `~/.aws/credentials`
+
+## Usage
+Initialize modules:
+```bash
+terraform init
